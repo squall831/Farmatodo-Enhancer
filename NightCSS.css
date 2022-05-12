@@ -63,11 +63,7 @@ body{
 }
 .cont-carousel-virtual .arrow{
     background-color: #404040!important;
-    border: 1px solid #000000!important;
-}
-.cont-carousel-virtual .arrow{
-    background-color: #404040!important;
-    border: 1px solid #000000!important;
+    border: 1px solid #418fde!important;
 }
 [data-bv-rating] .bv_main_container .bv_text, [data-bv-show=inline_rating] .bv_main_container .bv_text, div.bv_text{
     color: #adadad!important;
