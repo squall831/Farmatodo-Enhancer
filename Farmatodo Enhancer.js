@@ -1,0 +1,174 @@
+// ==UserScript==
+// @name         Farmatodo Enhancer
+// @namespace    squall831
+// @author       squall831
+// @version      0.1
+// @description:en  Adds prices in USD to Farmatodo and a dark theme.
+// @description:es  Añade precios en dólares para Farmatodo y un tema oscuro.
+// @icon         https://www.farmatodo.com.ve/assets/icons/favicon-96x96.png
+// @match        https://www.farmatodo.com.ve/*
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @grant        GM_xmlhttpRequest
+// @grant        GM_addStyle
+// @run-at       document-idle
+// @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
+// @copyright    2022
+// ==/UserScript==
+
+var dolarBCV = GM_getValue('dolarBCV', false);
+// Currency conversion last update
+var dolarBCV_LU = GM_getValue('dolarBCV_LU', false);
+// Older than 1 day
+var older = new Date().getTime() - (1 * 24 * 60 * 60 * 1000);
+
+if(!dolarBCV || !dolarBCV_LU || older > dolarBCV_LU){
+    console.log('%c[Farmatodo Enhancer] Actualizando tasa de cambip ', 'background: #222; color: #ffffff;');
+    GM_xmlhttpRequest({
+        method: "GET",
+        url: "https://s3.amazonaws.com/dolartoday/data.json",
+        synchronous: true,
+        onload: function(response) {
+            var USDinit = response.responseText.search("sicad2")+9
+            var USDend = response.responseText.search("sicad2")+13
+            var USD = response.responseText.substring(USDinit, USDend);
+            console.log("USD = " + USD);
+            if(!isNaN(USD)){
+                console.log('%c[Farmatodo Enhancer] Tasa actualizada a: '+USD, 'background: #222; color: #ffffff;');
+                GM_setValue('dolarBCV', USD);
+                GM_setValue('dolarBCV_LU', new Date().getTime());
+            }
+        }
+    });
+}
+
+console.log('%c[Farmatodo Enhancer] Utilizando la tasa actual: '+dolarBCV, 'background: #222; color: #ffffff;');
+
+function updatePrices(recurrent){
+
+    $('.text-price').each(function(){
+            var price = $(this).text();
+            if (price != undefined && $( this ).find('span').length == 0) {
+                var priceInit = price.search("Bs.")+3;
+                var base_price = price.slice(priceInit);
+                    base_price = base_price.replace(" ", "");
+                var price_usd = (parseFloat((base_price) / dolarBCV).toFixed(2));
+
+                var USDtag = document.createElement("span");
+                    USDtag.classList.add("text-USDprice");
+                    USDtag.innerHTML = "  $" + price_usd;
+                $(this).append( USDtag );
+            }
+        });
+
+    $('.p-blue').each(function(){
+            var price = $(this).text();
+            if (price != undefined && $( this ).find('p').length == 0) {
+                var priceInit = price.search("Bs.")+3;
+                var base_price = price.slice(priceInit);
+                    base_price = base_price.replace(" ", "");
+                var price_usd = (parseFloat((base_price) / dolarBCV).toFixed(2));
+                var USDtag = document.createElement("p");
+                    USDtag.classList.add("text-USDprice");
+                    USDtag.innerHTML = "$" + price_usd;
+                $(this).append( USDtag );
+            }
+        })
+
+        if (window.location.href=='https://www.farmatodo.com.ve/carrito') {
+            if (document.getElementsByClassName('lds-roller lds-roller-ftd-blue')[0] == undefined) {
+                if (document.querySelector("#app-component-router-outlet > div > div > app-cart > div > article > section > aside > app-billing-summary > section > app-overlay").innerHTML == '\x3C!---->') {
+                    document.getElementsByClassName("summary-item sub-total")[0].getElementsByClassName("value")[0].classList.add("text-price");
+                    document.getElementsByClassName("summary-item delivery")[0].getElementsByClassName("value")[0].classList.add("text-price");
+                    document.getElementsByClassName("summary-item total")[0].getElementsByClassName("value")[0].classList.add("text-price");
+                };
+            };
+        };
+    };
+
+
+//Function addRule to test CSS rules.
+
+// var addRule = (function (style) {
+//     var sheet = document.head.appendChild(style).sheet;
+//     return function (selector, css) {
+//         var propText = typeof css === "string" ? css : Object.keys(css).map(function (p) {
+//             return p + ":" + (p === "content" ? "'" + css[p] + "'" : css[p]);
+//         }).join(";");
+//         sheet.insertRule(selector + "{" + propText + "}", sheet.cssRules.length);
+//     };
+// })(document.createElement("style"));
+
+// Adding CSS rule for USD price.
+
+// addRule(".text-USDprice", {
+//     color: "#209d3d",
+// });
+
+$('head').append('<link rel="stylesheet" id="baseCSS" type="text/css" href="https://cdn.jsdelivr.net/gh/squall831/Farmatodo-Enhancer/BaseCSS.css">');
+
+function altAddNightMode(recurrent){
+
+    if (document.getElementsByClassName("row copy")[0].childElementCount == 3) {
+        var nightMode = document.createElement("div");
+                nightMode.classList.add("wrapper-toggle");
+        var toggleDIV = document.createElement("div");
+                toggleDIV.classList.add("toggle");
+        var input = document.createElement("input");
+                input.classList.add("toggle-input");
+		input.type = "checkbox";
+        var toggleBG = document.createElement("div");
+		toggleBG.classList.add("toggle-bg");
+        var toggleSW = document.createElement("div");
+		toggleSW.classList.add("toggle-switch");
+        var toggleSwFig = document.createElement("div");
+		toggleSwFig.classList.add("toggle-switch-figure");
+        var toggleSwFigAlt = document.createElement("div");
+		toggleSwFigAlt.classList.add("toggle-switch-figureAlt");
+
+        nightMode.appendChild(toggleDIV);
+        toggleDIV.appendChild(input);
+	    toggleDIV.appendChild(toggleBG);
+	    toggleDIV.appendChild(toggleSW);
+        toggleSW.appendChild(toggleSwFig);
+        toggleSW.appendChild(toggleSwFigAlt);
+
+        document.getElementsByClassName("col-3 cont-redes-f")[0].insertAdjacentElement("afterend", nightMode);
+};
+
+        const toggle = document.querySelector('.toggle-input');
+        const initialState = localStorage.getItem('toggleState') == 'true';
+        toggle.checked = initialState;
+        toggle.addEventListener('change', function() {
+        localStorage.setItem('toggleState', toggle.checked)});
+        darkMode(true);
+};
+
+function darkMode(recurrent) {
+  const toggle = document.querySelector('.toggle-input');
+  if (toggle.checked == true) {
+
+  /////Proceeding with the main page Night Mode./////
+
+  $('head').append('<link rel="stylesheet" id="nightCSS" type="text/css" href="https://cdn.jsdelivr.net/gh/squall831/Farmatodo-Enhancer/NightCSS.css">');
+
+    //console.log("Noche");
+  } else {
+      if (document.getElementById("nightCSS") != null) {
+          $( "#nightCSS" ).remove();
+          };
+      };
+
+    //console.log("Luz");
+};
+
+$( document ).ready(function() {
+   //console.log("Empezando la función");
+
+   updatePrices();
+
+   setInterval(function(){updatePrices(true);},1000);
+   setInterval(function(){altAddNightMode(true);},1000);
+
+   //console.log("Todo listo");
+});
