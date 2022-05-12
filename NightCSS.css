@@ -52,6 +52,9 @@ body{
     border-top-left-radius: 0rem!important;
     border-top-right-radius: 0rem!important;
 }
+.categories .cont-deparments .department .content-category{
+    background-color: #222 !important;
+}
 .categories .cont-deparments .department .content-category .sub-category .category-container .cont-sub-category .text-sub-category{
     color: #FFF !important;
 }
