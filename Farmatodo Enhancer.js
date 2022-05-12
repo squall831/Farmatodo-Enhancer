@@ -13,7 +13,7 @@
 // @run-at              document-idle
 // @require             http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
 // @author              squall831
-// @license             GPL
+// @license             GPL: http://www.gnu.org/copyleft/gpl.html
 // ==/UserScript==
 
 var dolarBCV = GM_getValue('dolarBCV', false);
