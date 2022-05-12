@@ -148,8 +148,9 @@ function darkMode(recurrent) {
   if (toggle.checked == true) {
 
       /////Proceeding with the main page Night Mode./////
-
-      $('head').append('<link rel="stylesheet" id="nightCSS" type="text/css" href="https://cdn.jsdelivr.net/gh/squall831/Farmatodo-Enhancer/NightCSS.css">');
+      if (document.getElementById("nightCSS") == null) {
+          $('head').append('<link rel="stylesheet" id="nightCSS" type="text/css" href="https://cdn.jsdelivr.net/gh/squall831/Farmatodo-Enhancer/NightCSS.css">');
+          };
 
     //console.log("Night");
   } else {
