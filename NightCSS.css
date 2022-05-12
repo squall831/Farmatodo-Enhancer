@@ -52,7 +52,7 @@ body{
     border-top-left-radius: 0rem!important;
     border-top-right-radius: 0rem!important;
 }
-.categories[_ngcontent-ng-ftd-c57] .cont-deparments[_ngcontent-ng-ftd-c57] .department[_ngcontent-ng-ftd-c57] .content-category[_ngcontent-ng-ftd-c57]{
+.categories .cont-deparments .department .content-category{
     background-color: #222222!important;
 }
 .categories .cont-deparments .department .content-category .sub-category .category-container .cont-sub-category .text-sub-category{
@@ -139,7 +139,7 @@ p.cont-sub-category{
     color: #000!important;
     font-weight: bold;
 }
-.categories .cont-deparments .department:hover > .content-category{
+.categories[_ngcontent-ng-ftd-c57] .cont-deparments[_ngcontent-ng-ftd-c57] .department[_ngcontent-ng-ftd-c57]:hover > .content-category[_ngcontent-ng-ftd-c57]{
     background-color: #222222!important;
 }
 .product-image .picture-wrapper{
