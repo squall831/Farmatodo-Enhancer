@@ -13,7 +13,7 @@
 // @run-at              document-idle
 // @require             http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
 // @author              squall831
-// @license             GPL: http://www.gnu.org/copyleft/gpl.html
+// @license             GPL
 // ==/UserScript==
 
 var dolarBCV = GM_getValue('dolarBCV', false);
@@ -89,15 +89,15 @@ function updatePrices(recurrent){
 
 //Function addRule to test CSS rules.
 
-// var addRule = (function (style) {
-//     var sheet = document.head.appendChild(style).sheet;
-//     return function (selector, css) {
-//         var propText = typeof css === "string" ? css : Object.keys(css).map(function (p) {
-//             return p + ":" + (p === "content" ? "'" + css[p] + "'" : css[p]);
-//         }).join(";");
-//         sheet.insertRule(selector + "{" + propText + "}", sheet.cssRules.length);
-//     };
-// })(document.createElement("style"));
+var addRule = (function (style) {
+    var sheet = document.head.appendChild(style).sheet;
+    return function (selector, css) {
+        var propText = typeof css === "string" ? css : Object.keys(css).map(function (p) {
+            return p + ":" + (p === "content" ? "'" + css[p] + "'" : css[p]);
+        }).join(";");
+        sheet.insertRule(selector + "{" + propText + "}", sheet.cssRules.length);
+    };
+})(document.createElement("style"));
 
 // Adding CSS rule for USD price.
 
@@ -150,12 +150,19 @@ function darkMode(recurrent) {
       /////Proceeding with the main page Night Mode./////
       if (document.getElementById("nightCSS") == null) {
           $('head').append('<link rel="stylesheet" id="nightCSS" type="text/css" href="https://cdn.jsdelivr.net/gh/squall831/Farmatodo-Enhancer/NightCSS.css">');
-          };
+
+          addRule(".categories[_ngcontent-ng-ftd-c57] .cont-deparments[_ngcontent-ng-ftd-c57] .department[_ngcontent-ng-ftd-c57]:hover > .content-category[_ngcontent-ng-ftd-c57]", {
+          "background-color": "#222!important",
+          });
+      };
 
     //console.log("Night");
   } else {
       if (document.getElementById("nightCSS") != null) {
           $('#nightCSS').remove();
+          addRule(".categories[_ngcontent-ng-ftd-c57] .cont-deparments[_ngcontent-ng-ftd-c57] .department[_ngcontent-ng-ftd-c57]:hover > .content-category[_ngcontent-ng-ftd-c57]", {
+          "background-color": "#FFF!important",
+          });
           };
       //console.log("Day");
       };
@@ -165,6 +172,6 @@ $( document ).ready(function() {
 
    setInterval(function(){updatePrices(true);},1000);
 
-   setInterval(function(){altAddNightMode(true); },1000);
+   setInterval(function(){altAddNightMode(true);},1000);
 
 });
