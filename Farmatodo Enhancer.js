@@ -1,19 +1,19 @@
 // ==UserScript==
-// @name         Farmatodo Enhancer
-// @namespace    squall831
-// @author       squall831
-// @version      0.1
-// @description:en  Adds prices in USD to Farmatodo and a dark theme.
-// @description:es  Añade precios en dólares para Farmatodo y un tema oscuro.
-// @icon         https://www.farmatodo.com.ve/assets/icons/favicon-96x96.png
-// @match        https://www.farmatodo.com.ve/*
-// @grant        GM_getValue
-// @grant        GM_setValue
-// @grant        GM_xmlhttpRequest
-// @grant        GM_addStyle
-// @run-at       document-idle
-// @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
-// @copyright    2022
+// @name                Farmatodo Enhancer
+// @namespace           https://github.com/squall831/Farmatodo-Enhancer
+// @version             0.1
+// @description:en      Adds prices in USD to Farmatodo and a dark theme.
+// @description:es      Añade precios en dólares para Farmatodo y un tema oscuro.
+// @icon                https://www.farmatodo.com.ve/assets/icons/favicon-96x96.png
+// @match               https://www.farmatodo.com.ve/*
+// @grant               GM_getValue
+// @grant               GM_setValue
+// @grant               GM_xmlhttpRequest
+// @grant               GM_addStyle
+// @run-at              document-idle
+// @require             http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
+// @author              squall831
+// @license             GPL
 // ==/UserScript==
 
 var dolarBCV = GM_getValue('dolarBCV', false);
@@ -134,13 +134,12 @@ function altAddNightMode(recurrent){
         toggleSW.appendChild(toggleSwFigAlt);
 
         document.getElementsByClassName("col-3 cont-redes-f")[0].insertAdjacentElement("afterend", nightMode);
-};
-
         const toggle = document.querySelector('.toggle-input');
         const initialState = localStorage.getItem('toggleState') == 'true';
         toggle.checked = initialState;
         toggle.addEventListener('change', function() {
         localStorage.setItem('toggleState', toggle.checked)});
+};
         darkMode(true);
 };
 
@@ -148,27 +147,23 @@ function darkMode(recurrent) {
   const toggle = document.querySelector('.toggle-input');
   if (toggle.checked == true) {
 
-  /////Proceeding with the main page Night Mode./////
+      /////Proceeding with the main page Night Mode./////
 
-  $('head').append('<link rel="stylesheet" id="nightCSS" type="text/css" href="https://cdn.jsdelivr.net/gh/squall831/Farmatodo-Enhancer/NightCSS.css">');
+      $('head').append('<link rel="stylesheet" id="nightCSS" type="text/css" href="https://cdn.jsdelivr.net/gh/squall831/Farmatodo-Enhancer/NightCSS.css">');
 
-    //console.log("Noche");
+    //console.log("Night");
   } else {
       if (document.getElementById("nightCSS") != null) {
-          $( "#nightCSS" ).remove();
+          $('#nightCSS').remove();
           };
+      //console.log("Day");
       };
-
-    //console.log("Luz");
 };
 
 $( document ).ready(function() {
-   //console.log("Empezando la función");
-
-   updatePrices();
 
    setInterval(function(){updatePrices(true);},1000);
-   setInterval(function(){altAddNightMode(true);},1000);
 
-   //console.log("Todo listo");
+   setInterval(function(){altAddNightMode(true); },1000);
+
 });
