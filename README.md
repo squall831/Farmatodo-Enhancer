@@ -15,4 +15,4 @@
 ------------------------------------------------------------------------------------------------------------------
 
 
-El principal proposito de este script es añadir precios en dolares (tipo de cambio BCV) a la web de Farmatodo Venezuela, pero tambien se añade un modo oscuro que se puede activar y desactivar desde un interruptor ubicado al fondo de la pagina principal.
+El principal propósito de este script es añadir precios en dólares (tipo de cambio BCV) a la web de Farmatodo Venezuela. También se añade un modo oscuro que se puede activar y desactivar desde un interruptor ubicado al fondo de la pagina principal.
