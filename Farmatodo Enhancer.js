@@ -19,11 +19,11 @@
 var dolarBCV = GM_getValue('dolarBCV', false);
 // Currency conversion last update
 var dolarBCV_LU = GM_getValue('dolarBCV_LU', false);
-// Older than 1 day
-var older = new Date().getTime() - (1 * 24 * 60 * 60 * 1000);
+// Older than half a day
+var older = new Date().getTime() - (0.5 * 24 * 60 * 60 * 1000);
 
 if(!dolarBCV || !dolarBCV_LU || older > dolarBCV_LU){
-    console.log('%c[Farmatodo Enhancer] Actualizando tasa de cambip ', 'background: #222; color: #ffffff;');
+    console.log('%c[Farmatodo Enhancer] Actualizando tasa de cambio ', 'background: #222; color: #ffffff;');
     GM_xmlhttpRequest({
         method: "GET",
         url: "https://s3.amazonaws.com/dolartoday/data.json",
