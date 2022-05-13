@@ -89,15 +89,15 @@ function updatePrices(recurrent){
 
 //Function addRule to test CSS rules.
 
-var addRule = (function (style) {
-    var sheet = document.head.appendChild(style).sheet;
-    return function (selector, css) {
-        var propText = typeof css === "string" ? css : Object.keys(css).map(function (p) {
-            return p + ":" + (p === "content" ? "'" + css[p] + "'" : css[p]);
-        }).join(";");
-        sheet.insertRule(selector + "{" + propText + "}", sheet.cssRules.length);
-    };
-})(document.createElement("style"));
+// var addRule = (function (style) {
+//     var sheet = document.head.appendChild(style).sheet;
+//     return function (selector, css) {
+//         var propText = typeof css === "string" ? css : Object.keys(css).map(function (p) {
+//             return p + ":" + (p === "content" ? "'" + css[p] + "'" : css[p]);
+//         }).join(";");
+//         sheet.insertRule(selector + "{" + propText + "}", sheet.cssRules.length);
+//     };
+// })(document.createElement("style"));
 
 // Adding CSS rule for USD price.
 
@@ -139,7 +139,7 @@ function altAddNightMode(recurrent){
         toggle.checked = initialState;
         toggle.addEventListener('change', function() {
         localStorage.setItem('toggleState', toggle.checked)});
-};
+    };
         darkMode(true);
 };
 
@@ -150,21 +150,11 @@ function darkMode(recurrent) {
       /////Proceeding with the main page Night Mode./////
       if (document.getElementById("nightCSS") == null) {
           $('head').append('<link rel="stylesheet" id="nightCSS" type="text/css" href="https://cdn.jsdelivr.net/gh/squall831/Farmatodo-Enhancer/NightCSS.css">');
-
-          addRule(".categories[_ngcontent-ng-ftd-c57] .cont-deparments[_ngcontent-ng-ftd-c57] .department[_ngcontent-ng-ftd-c57]:hover > .content-category[_ngcontent-ng-ftd-c57]", {
-          "background-color": "#222!important",
-          });
       };
-
-    //console.log("Night");
-  } else {
-      if (document.getElementById("nightCSS") != null) {
-          $('#nightCSS').remove();
-          addRule(".categories[_ngcontent-ng-ftd-c57] .cont-deparments[_ngcontent-ng-ftd-c57] .department[_ngcontent-ng-ftd-c57]:hover > .content-category[_ngcontent-ng-ftd-c57]", {
-          "background-color": "#FFF!important",
-          });
+      } else {
+          if (document.getElementById("nightCSS") != null) {
+              $('#nightCSS').remove();
           };
-      //console.log("Day");
       };
 };
 
