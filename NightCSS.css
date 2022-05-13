@@ -60,6 +60,7 @@ body{
 }
 .arrow-simple-content .arrow-simple .line-one, .arrow-simple-content .arrow-simple .line-two{
     background-color: #418fde!important;
+    border: 1px solid #418fde!important;
 }
 .cont-carousel-virtual .arrow{
     background-color: #404040!important;
