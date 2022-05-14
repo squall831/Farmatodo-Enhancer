@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name                Farmatodo Enhancer
 // @namespace           https://github.com/squall831/Farmatodo-Enhancer
-// @version             0.1
+// @version             0.1.1
 // @description:en      Adds prices in USD to Farmatodo and a dark theme.
 // @description:es      Añade precios en dólares para Farmatodo y un tema oscuro.
 // @icon                https://www.farmatodo.com.ve/assets/icons/favicon-96x96.png
@@ -11,7 +11,7 @@
 // @grant               GM_xmlhttpRequest
 // @grant               GM_addStyle
 // @run-at              document-idle
-// @require             http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
+// @require             https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 // @author              squall831
 // @license             GPL
 // ==/UserScript==
@@ -26,13 +26,18 @@ if(!dolarBCV || !dolarBCV_LU || older > dolarBCV_LU){
     console.log('%c[Farmatodo Enhancer] Actualizando tasa de cambio ', 'background: #222; color: #ffffff;');
     GM_xmlhttpRequest({
         method: "GET",
-        url: "https://s3.amazonaws.com/dolartoday/data.json",
+        //url: "https://s3.amazonaws.com/dolartoday/data.json",
+        url: "http://www.bcv.org.ve/estadisticas/tipo-cambio-de-referencia-smc",
         synchronous: true,
         onload: function(response) {
-            var USDinit = response.responseText.search("sicad2")+9
-            var USDend = response.responseText.search("sicad2")+13
+            //var USDinit = response.responseText.search("sicad2")+9
+            //var USDend = response.responseText.search("sicad2")+13
+            //var USD = response.responseText.substring(USDinit, USDend);
+            var USDinit = response.responseText.search("USD")+120
+            var USDend = response.responseText.search("USD")+126
             var USD = response.responseText.substring(USDinit, USDend);
-            console.log("USD = " + USD);
+            USD = USD.replace(/,/g, '.');
+            USD = Number(USD);
             if(!isNaN(USD)){
                 console.log('%c[Farmatodo Enhancer] Tasa actualizada a: '+USD, 'background: #222; color: #ffffff;');
                 GM_setValue('dolarBCV', USD);
