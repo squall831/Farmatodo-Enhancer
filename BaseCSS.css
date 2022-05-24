@@ -12,7 +12,7 @@
   position: relative;
   display: inline-block;
   width: 100px;
-  margin-left: 100px;
+  margin-left: 25px;
   padding: 4px;
   border-radius: 40px;
 }
@@ -155,4 +155,7 @@
 }
 .toggle-input:checked ~ .toggle-switch .toggle-switch-figureAlt{
   transform: scale(1);
+}
+.toggle-indicator{
+    font-size: medium;
 }
