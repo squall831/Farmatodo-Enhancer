@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name                Farmatodo Enhancer
 // @namespace           https://github.com/squall831/Farmatodo-Enhancer
-// @version             0.1.1
+// @version             0.1.2
 // @description:en      Adds prices in USD to Farmatodo and a dark theme.
 // @description:es      Añade precios en dólares para Farmatodo y un tema oscuro.
 // @icon                https://www.farmatodo.com.ve/assets/icons/favicon-96x96.png
@@ -117,6 +117,9 @@ function altAddNightMode(recurrent){
     if (document.getElementsByClassName("row copy")[0].childElementCount == 3) {
         var nightMode = document.createElement("div");
                 nightMode.classList.add("wrapper-toggle");
+        var toggleInd = document.createElement("span");
+                toggleInd.classList.add("toggle-indicator");
+                toggleInd.innerHTML = "Modo Claro / Oscuro:";
         var toggleDIV = document.createElement("div");
                 toggleDIV.classList.add("toggle");
         var input = document.createElement("input");
@@ -131,6 +134,7 @@ function altAddNightMode(recurrent){
         var toggleSwFigAlt = document.createElement("div");
 		toggleSwFigAlt.classList.add("toggle-switch-figureAlt");
 
+        nightMode.appendChild(toggleInd);
         nightMode.appendChild(toggleDIV);
         toggleDIV.appendChild(input);
 	    toggleDIV.appendChild(toggleBG);
