@@ -344,6 +344,9 @@ hr{
 .product-detail-container .cont-details .cont-texts .big-title{
     color: #FFFFFF!important;
 }
+.product-detail-container .cont-details .cont-texts .media-description{
+    color: #adadad!important;
+}
 .product-detail-container .cont-details .card-time-container .simpleDetail .desc{
     color: #FFFFFF!important;
 }
@@ -360,5 +363,47 @@ hr{
     color: #adadad!important;
 }
 .bv-cv2-cleanslate .bv-core-container-136 .bv-focusable[tabindex="-1"]{
+    color: #adadad!important;
+}
+.seo-container .data-sheet>h3{
+    color: #adadad!important;
+}
+.seo-container .modules-right .info h2{
+    color: #adadad!important;
+}
+.seo-container .data-sheet>.container-data-sheet>.left>.item:nth-child(odd){
+    background-color: #4a4a4a!important;
+}
+.seo-container .data-sheet>.container-data-sheet>.right>.item:nth-child(2n){
+    background-color: #4a4a4a!important;
+}
+.seo-container .data-sheet>.container-data-sheet>.left>.item>.title{
+    color: #adadad!important;
+}
+.seo-container .data-sheet>.container-data-sheet>.left>.item>.description{
+    color: #adadad!important;
+}
+.seo-container .data-sheet>.container-data-sheet>.right>.item>.title{
+    color: #adadad!important;
+}
+.seo-container .data-sheet>.container-data-sheet>.right>.item>.description{
+    color: #adadad!important;
+}
+.bv-cv2-cleanslate .bv-core-container-136 .bv-section-summary .bv-content-title{
+    color: #adadad!important;
+}
+.bv-cv2-cleanslate .bv-core-container-136 .bv-section-summary .bv-section-summary-inline .bv-inline-histogram-ratings .bv-histogram-filter-helper{
+    color: #adadad!important;
+}
+.bv-cv2-cleanslate .bv-core-container-136 .bv-section-summary-inline .bv-secondary-rating-summary .bv-table .bv-secondary-rating-summary-id{
+    color: #adadad!important;
+}
+.bv-cv2-cleanslate .bv-core-container-136 .bv-section-summary-inline .bv-secondary-rating-summary .bv-table .bv-secondary-rating-summary-rating{
+    color: #adadad!important;
+}
+.bv-cv2-cleanslate, .bv-cv2-cleanslate h1, .bv-cv2-cleanslate h2, .bv-cv2-cleanslate h3, .bv-cv2-cleanslate h4, .bv-cv2-cleanslate h5, .bv-cv2-cleanslate h6, .bv-cv2-cleanslate p, .bv-cv2-cleanslate dl, .bv-cv2-cleanslate dt, .bv-cv2-cleanslate ol, .bv-cv2-cleanslate form, .bv-cv2-cleanslate select.bv-select-cleanslate, .bv-cv2-cleanslate option, .bv-cv2-cleanslate pre, .bv-cv2-cleanslate div, .bv-cv2-cleanslate caption, .bv-cv2-cleanslate thead, .bv-cv2-cleanslate ul, .bv-cv2-cleanslate li, .bv-cv2-cleanslate ul li, .bv-cv2-cleanslate ol li, .bv-cv2-cleanslate .bv-shared ul li, .bv-cv2-cleanslate .bv-shared ol li, .bv-cv2-cleanslate address, .bv-cv2-cleanslate blockquote, .bv-cv2-cleanslate dd, .bv-cv2-cleanslate fieldset, .bv-cv2-cleanslate iframe, .bv-cv2-cleanslate strong, .bv-cv2-cleanslate legend, .bv-cv2-cleanslate em, .bv-cv2-cleanslate s, .bv-cv2-cleanslate cite, .bv-cv2-cleanslate span, .bv-cv2-cleanslate input, .bv-cv2-cleanslate sup, .bv-cv2-cleanslate label, .bv-cv2-cleanslate dfn, .bv-cv2-cleanslate object, .bv-cv2-cleanslate big, .bv-cv2-cleanslate q, .bv-cv2-cleanslate font, .bv-cv2-cleanslate samp, .bv-cv2-cleanslate acronym, .bv-cv2-cleanslate small, .bv-cv2-cleanslate img, .bv-cv2-cleanslate strike, .bv-cv2-cleanslate code, .bv-cv2-cleanslate sub, .bv-cv2-cleanslate ins, .bv-cv2-cleanslate textarea, .bv-cv2-cleanslate var, .bv-cv2-cleanslate a, .bv-cv2-cleanslate abbr, .bv-cv2-cleanslate applet, .bv-cv2-cleanslate del, .bv-cv2-cleanslate kbd, .bv-cv2-cleanslate tt, .bv-cv2-cleanslate b, .bv-cv2-cleanslate i, .bv-cv2-cleanslate hr, .bv-cv2-cleanslate article, .bv-cv2-cleanslate aside, .bv-cv2-cleanslate dialog, .bv-cv2-cleanslate figure, .bv-cv2-cleanslate footer, .bv-cv2-cleanslate header, .bv-cv2-cleanslate hgroup, .bv-cv2-cleanslate menu, .bv-cv2-cleanslate nav, .bv-cv2-cleanslate section, .bv-cv2-cleanslate time, .bv-cv2-cleanslate mark, .bv-cv2-cleanslate audio, .bv-cv2-cleanslate video, .bv-cv2-cleanslate button{
+    color: #FFFFFF!important;
+}
+.bv-cv2-cleanslate .bv-core-container-136 .bv-inline-histogram-ratings .bv-flex-container div, .bv-cv2-cleanslate .bv-core-container-136 .bv-popup-histogram-ratings .bv-flex-container div{
     color: #adadad!important;
 }
