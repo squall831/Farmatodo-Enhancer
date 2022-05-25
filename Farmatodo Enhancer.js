@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name                Farmatodo Enhancer
 // @namespace           https://github.com/squall831/Farmatodo-Enhancer
-// @version             0.1.2
+// @version             0.1.3
 // @description:en      Adds prices in USD to Farmatodo and a dark theme.
 // @description:es      Añade precios en dólares para Farmatodo y un tema oscuro.
 // @icon                https://www.farmatodo.com.ve/assets/icons/favicon-96x96.png
@@ -163,6 +163,13 @@ function darkMode(recurrent) {
       } else {
           if (document.getElementById("nightCSS") != null) {
               $('#nightCSS').remove();
+          };
+      };
+      if (window.location.href.slice(0,38)=='https://www.farmatodo.com.ve/producto/') {
+          if (document.getElementsByClassName('lds-roller lds-roller-ftd-blue')[0] == undefined) {
+              if (document.getElementById("nightCSS2") != null) {
+              $('head').append('<link rel="stylesheet" id="nightCSS2" type="text/css" href="https://cdn.jsdelivr.net/gh/squall831/Farmatodo-Enhancer/NightCSS.css">');
+          };
           };
       };
 };
