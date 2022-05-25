@@ -335,3 +335,30 @@ hr{
 .contenedor-ubica-tienda .buscador-input{
     color: #fff!important;
 }
+.router-outlet .routers-views .views{
+    background-color: #000000!important;
+}
+.align-content-center{
+    color: #adadad!important;
+}
+.product-detail-container .cont-details .cont-texts .big-title{
+    color: #FFFFFF!important;
+}
+.product-detail-container .cont-details .card-time-container .simpleDetail .desc{
+    color: #FFFFFF!important;
+}
+.product-detail-container .cont-details .card-time-container .simpleDetail .sd-icon{
+    filter: invert(1);
+}
+.content-availability .content-form{
+    background-color: #000000!important;
+}
+.content-availability .content-form .cont-petals [class*=col-]{
+    color: #FFFFFF!important;
+}
+.bv-cv2-cleanslate .bv-core-container-136 .bv-content-noreviews-label{
+    color: #adadad!important;
+}
+.bv-cv2-cleanslate .bv-core-container-136 .bv-focusable[tabindex="-1"]{
+    color: #adadad!important;
+}
