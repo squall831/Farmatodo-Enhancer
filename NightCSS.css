@@ -407,3 +407,12 @@ hr{
 .bv-cv2-cleanslate .bv-core-container-136 .bv-inline-histogram-ratings .bv-flex-container div, .bv-cv2-cleanslate .bv-core-container-136 .bv-popup-histogram-ratings .bv-flex-container div{
     color: #adadad!important;
 }
+.bv-cv2-cleanslate .bv-core-container-136 p{
+    color: #FFF!important;
+}
+.bv-cv2-cleanslate .bv-core-container-136 .bv-content-search .bv-masthead, .bv-cv2-cleanslate .bv-core-container-136 .bv-generic-submission .bv-masthead{
+    background-color: #222222!important;
+}
+.bv-cv2-cleanslate .bv-core-container-136 .bv-section-summary-inline .bv-secondary-rating-summary .bv-table .bv-table-row .bv-table-cell{
+    color: #FFF!important;
+}
